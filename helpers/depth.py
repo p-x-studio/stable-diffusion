@@ -67,7 +67,7 @@ class DepthModel():
         w, h = prev_img_cv2.shape[1], prev_img_cv2.shape[0]
 
         # predict depth with AdaBins    
-        use_adabins = anim_args.midas_weight < 1.0 and self.adabins_helper is not None
+        use_adabins = anim_args["midas_weight"] < 1.0 and self.adabins_helper is not None
         if use_adabins:
             MAX_ADABINS_AREA = 500000
             MIN_ADABINS_AREA = 448*448
@@ -131,7 +131,7 @@ class DepthModel():
 
             # blend between MiDaS and AdaBins predictions
             if use_adabins:
-                depth_map = midas_depth*anim_args.midas_weight + adabins_depth*(1.0-anim_args.midas_weight)
+                depth_map = midas_depth*anim_args["midas_weight"] + adabins_depth*(1.0-anim_args["midas_weight"])
             else:
                 depth_map = midas_depth
 
