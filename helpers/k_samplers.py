@@ -1,7 +1,7 @@
 from typing import Any, Callable, Optional
 import torch
-from k_diffusion.external import CompVisDenoiser
-from k_diffusion import sampling
+from animation.k_diffusion.k_diffusion.external import CompVisDenoiser
+from animation.k_diffusion.k_diffusion import sampling
 from torch import nn
 
 class CFGDenoiser(nn.Module):
