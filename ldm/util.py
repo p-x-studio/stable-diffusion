@@ -1,3 +1,9 @@
+import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "../../taming_transformers"))
+
 import importlib
 
 import torch
@@ -87,6 +93,7 @@ def instantiate_from_config(config):
 
 def get_obj_from_str(string, reload=False):
     module, cls = string.rsplit(".", 1)
+
     if reload:
         module_imp = importlib.import_module(module)
         importlib.reload(module_imp)
